@@ -8,7 +8,7 @@ function GameModOne() {
   const [computerChoice, setComputerChoice] = useState("scissors");
   const [userScore, setUserScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
-  const [result, setResult] = useState("Winner ");
+  const [result, setResult] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [play,setPlay]=useState(false);
 
