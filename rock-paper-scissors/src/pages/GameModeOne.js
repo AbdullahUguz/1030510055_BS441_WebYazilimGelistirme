@@ -8,21 +8,62 @@ function GameModOne() {
   const [computerChoice, setComputerChoice] = useState("scissors");
   const [userScore, setUserScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
-  const [turnResult, setTurnResult] = useState(null);
   const [result, setResult] = useState("Winner ");
   const [gameOver, setGameOver] = useState(false);
+  const [play,setPlay]=useState(false);
 
-  const handleClick = (e) => {    
+  useEffect(() => {
+      const str = userChoice + computerChoice;
+      console.log(str);
+      if (
+        str === "rockscissors" ||
+        str === "scissorspaper" ||
+        str === "paperrock"
+      ) {
+        setUserScore((prev) => prev + 1);
+        setResult("User +1 puan aldı");
+      } else if (
+        str === "scissorsrock" ||
+        str === "paperscissors" ||
+        str === "rockpaper"
+      ) {
+        setComputerScore((prev) => prev + 1);
+        setResult("Computer +1 puan aldı");
+      } else if (
+        str === "rockrock" ||
+        str === "scissorsscissors" ||
+        str === "paperpaper"
+      ) {
+        setResult("Beraber");
+      }
+  }, [play]);
+
+  useEffect(()=>{
+    if(userScore === 5 || computerScore === 5){
+      setGameOver(true);
+      userScore === 5 ? setResult("Kazana USER !!!!!") : setResult("Kazanan COMPUTER !!!!!!");
+    }
+  },[userScore,computerScore]);
+
+  const handleClick = (e) => {
     setUserChoice(e.target.value);
   };
 
-  const handlePlay = (e) => {
+  const handlePlay =  (e) => {
     assignmentComputerChoice();
+    setPlay(!play);
   };
 
   const assignmentComputerChoice = () => {
     const random = choices[Math.floor(Math.random() * choices.length)];
     setComputerChoice(random);
+  };
+
+  const reset = () => {
+    setUserScore(0);
+    setComputerScore(0);
+    setGameOver(false);
+    setResult("");
   };
 
   return (
@@ -40,7 +81,11 @@ function GameModOne() {
         <div className="mt-5 mb-5">
           <button
             type="button"
-            class={userChoice == "rock" ? "btn btn-outline-info mx-2 active" :"btn btn-outline-info mx-2"}
+            className={
+              userChoice == "rock"
+                ? "btn btn-outline-info mx-2 active"
+                : "btn btn-outline-info mx-2"
+            }
             value={"rock"}
             onClick={handleClick}
           >
@@ -48,7 +93,11 @@ function GameModOne() {
           </button>
           <button
             type="button"
-            class={userChoice == "paper" ? "btn btn-outline-info mx-2 active" :"btn btn-outline-info mx-2"}
+            className={
+              userChoice == "paper"
+                ? "btn btn-outline-info mx-2 active"
+                : "btn btn-outline-info mx-2"
+            }
             value={"paper"}
             onClick={handleClick}
           >
@@ -56,7 +105,11 @@ function GameModOne() {
           </button>
           <button
             type="button"
-            class={userChoice == "scissors" ? "btn btn-outline-info active" :"btn btn-outline-info"}
+            className={
+              userChoice == "scissors"
+                ? "btn btn-outline-info active"
+                : "btn btn-outline-info"
+            }
             value={"scissors"}
             onClick={handleClick}
           >
@@ -74,18 +127,18 @@ function GameModOne() {
           />
         </div>
       </div>
-      
-      <div className="col-sm-12 mt-4">
+
+      <div className="col-sm-12">
         <p>
-          <strong>User Choice</strong>{" "}
+          {userScore ===5 || computerScore ===5 ? <h2 >{result}</h2>:<strong >{result}</strong>}
         </p>
       </div>
 
-      <div className="col-sm-12 mt-5">
+      <div className="col-sm-12 mt-2">
         {!gameOver ? (
           <button
             type="button"
-            class="btn btn-outline-success"
+            className="btn btn-success px-5"
             onClick={handlePlay}
           >
             Oyna
@@ -93,14 +146,13 @@ function GameModOne() {
         ) : (
           <button
             type="button"
-            class="btn btn-outline-success"
-            onClick={handlePlay}
+            className="btn btn-warning px-5"
+            onClick={() => reset()}
           >
             Reset
           </button>
         )}
       </div>
-
     </div>
   );
 }
