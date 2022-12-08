@@ -4,54 +4,60 @@ import "../App.css";
 function GameModOne() {
   const choices = ["rock", "paper", "scissors"];
 
-  const [userChoice, setUserChoice] = useState("rock");
-  const [computerChoice, setComputerChoice] = useState("scissors");
+  const [userChoice, setUserChoice] = useState();
+  const [computerChoice, setComputerChoice] = useState();
   const [userScore, setUserScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [result, setResult] = useState("");
   const [gameOver, setGameOver] = useState(false);
-  const [play,setPlay]=useState(false);
+  const [play, setPlay] = useState(false);
 
   useEffect(() => {
-      const str = userChoice + computerChoice;
-      console.log(str);
-      if (
-        str === "rockscissors" ||
-        str === "scissorspaper" ||
-        str === "paperrock"
-      ) {
-        setUserScore((prev) => prev + 1);
-        setResult("User +1 puan aldı");
-      } else if (
-        str === "scissorsrock" ||
-        str === "paperscissors" ||
-        str === "rockpaper"
-      ) {
-        setComputerScore((prev) => prev + 1);
-        setResult("Computer +1 puan aldı");
-      } else if (
-        str === "rockrock" ||
-        str === "scissorsscissors" ||
-        str === "paperpaper"
-      ) {
-        setResult("Beraber");
-      }
+    const str = userChoice + computerChoice;
+    console.log(str);
+    if (
+      str === "rockscissors" ||
+      str === "scissorspaper" ||
+      str === "paperrock"
+    ) {
+      setUserScore((prev) => prev + 1);
+      setResult("User +1 puan aldı");
+    } else if (
+      str === "scissorsrock" ||
+      str === "paperscissors" ||
+      str === "rockpaper"
+    ) {
+      setComputerScore((prev) => prev + 1);
+      setResult("Computer +1 puan aldı");
+    } else if (
+      str === "rockrock" ||
+      str === "scissorsscissors" ||
+      str === "paperpaper"
+    ) {
+      setResult("Beraber");
+    }
   }, [play]);
 
-  useEffect(()=>{
-    if(userScore === 5 || computerScore === 5){
+  useEffect(() => {
+    if (userScore === 5 || computerScore === 5) {
       setGameOver(true);
-      userScore === 5 ? setResult("Kazana USER !!!!!") : setResult("Kazanan COMPUTER !!!!!!");
+      userScore === 5
+        ? setResult("Kazana USER !!!!!")
+        : setResult("Kazanan COMPUTER !!!!!!");
     }
-  },[userScore,computerScore]);
+  }, [userScore, computerScore]);
 
   const handleClick = (e) => {
     setUserChoice(e.target.value);
   };
 
-  const handlePlay =  (e) => {
-    assignmentComputerChoice();
-    setPlay(!play);
+  const handlePlay = (e) => {
+    if (!userChoice) {
+      alert("Önce user şeçimini yapmalıdır !!!");
+    } else {
+      assignmentComputerChoice();
+      setPlay(!play);
+    }
   };
 
   const assignmentComputerChoice = () => {
@@ -72,10 +78,14 @@ function GameModOne() {
         <div>
           <h3>User Score = {userScore}</h3>
           <div className="mt-5">
-            <img
-              className="userImg"
-              src={require(`../../public/img/${userChoice}.png`)}
-            />
+            {userChoice ? (
+              <img
+                className="userImg"
+                src={require(`../../public/img/${userChoice}.png`)}
+              />
+            ) : (
+              <p>Butonlar ile yapacağınız işareti şeçiniz</p>
+            )}
           </div>
         </div>
         <div className="mt-5 mb-5">
@@ -121,16 +131,27 @@ function GameModOne() {
       <div className="col-sm-6">
         <h3>Computer Score = {computerScore}</h3>
         <div className="mt-5">
-          <img
-            className="computerImg"
-            src={require(`../../public/img/${computerChoice}.png`)}
-          />
+          {computerChoice ? (
+            <img
+              className="computerImg"
+              src={require(`../../public/img/${computerChoice}.png`)}
+            />
+          ) : (
+            <p>
+              Oyna butonuna bastıktan sonra bilgisayar şeçimini
+              gerçekleştirecektir
+            </p>
+          )}
         </div>
       </div>
 
       <div className="col-sm-12">
         <p>
-          {userScore ===5 || computerScore ===5 ? <h2 >{result}</h2>:<strong >{result}</strong>}
+          {userScore === 5 || computerScore === 5 ? (
+            <h2>{result}</h2>
+          ) : (
+            <strong>{result}</strong>
+          )}
         </p>
       </div>
 
