@@ -36,7 +36,7 @@ function GameModOne() {
     ) {
       setResult("Beraber");
     }
-  }, [play]);
+  },[play]);
 
   useEffect(() => {
     if (userScore === 5 || computerScore === 5) {
@@ -92,7 +92,7 @@ function GameModOne() {
           <button
             type="button"
             className={
-              userChoice == "rock"
+              userChoice === "rock"
                 ? "btn btn-outline-info mx-2 active"
                 : "btn btn-outline-info mx-2"
             }
@@ -104,7 +104,7 @@ function GameModOne() {
           <button
             type="button"
             className={
-              userChoice == "paper"
+              userChoice === "paper"
                 ? "btn btn-outline-info mx-2 active"
                 : "btn btn-outline-info mx-2"
             }
@@ -116,7 +116,7 @@ function GameModOne() {
           <button
             type="button"
             className={
-              userChoice == "scissors"
+              userChoice === "scissors"
                 ? "btn btn-outline-info active"
                 : "btn btn-outline-info"
             }
