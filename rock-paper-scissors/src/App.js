@@ -2,9 +2,10 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Header from "./pages/Header";
-import GameModeOne from "./pages/GameModeOne";
-import GameModeTwo from "./pages/GameModeTwo";
+import Header from "./components/Header";
+import GameModeOne from "./components/GameModeOne/GameModeOne";
+import GameModeTwo from "./components/GameModeTwo/GameModeTwo";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/modeOne" element={<GameModeOne />} />
           <Route path="/modeTwo" element={<GameModeTwo />} />
-          <Route path="*" element={<notFound />} />
+          {/* <Route path="*" element={<notFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
+import "../../App.css";
+import UserInfoModeOne from "../GameModeOne/UserInfoModeOne";
+
 
 function GameModOne() {
+
+  const [user, setUser] = useState(null);
+  const [ok,setOk]=useState(false);
+
   const choices = ["rock", "paper", "scissors"];
 
   const [userChoice, setUserChoice] = useState();
@@ -72,16 +78,18 @@ function GameModOne() {
     setResult("");
   };
 
-  return (
+  return !ok ? (
+    <UserInfoModeOne  user={user} setUser={setUser} setOk={setOk}/>
+  ) : (
     <div className="row text-center">
       <div className="col-sm-6">
         <div>
-          <h3>User Score = {userScore}</h3>
+          <h3>{user} Score = {userScore}</h3>
           <div className="mt-5">
             {userChoice ? (
               <img
                 className="userImg"
-                src={require(`../../public/img/${userChoice}.png`)}
+                src={require(`../../../public/img/${userChoice}.png`)}
               />
             ) : (
               <p>Butonlar ile yapacağınız işareti şeçiniz</p>
@@ -134,7 +142,7 @@ function GameModOne() {
           {computerChoice ? (
             <img
               className="computerImg"
-              src={require(`../../public/img/${computerChoice}.png`)}
+              src={require(`../../../public/img/${computerChoice}.png`)}
             />
           ) : (
             <p>
