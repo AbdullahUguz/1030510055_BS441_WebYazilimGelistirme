@@ -19,13 +19,13 @@ function UserInfoModeOne({ user, setUser, setOk }) {
           <form>
             <div className="row">
               <div className="col-sm-12 mt-3 ">
-                <label htmlFor="user1Input" class="form-label">
+                <label htmlFor="user1Input" className="form-label">
                   Oyuncu  İsmi :
                 </label>
                 <input
                   type="text"
-                  class="form-control"
-                  value={user}
+                  className="form-control"
+                  // value={user}
                   onChange={(event) => setUser(event.target.value)}
                 />
               </div>

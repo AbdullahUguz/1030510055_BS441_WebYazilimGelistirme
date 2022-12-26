@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../App.css";
 import UserInfoModeOne from "../GameModeOne/UserInfoModeOne";
+import ChoiceButtonModeOne from "./ChoiceButtonModeOne";
 
 
 function GameModOne() {
@@ -20,14 +21,13 @@ function GameModOne() {
 
   useEffect(() => {
     const str = userChoice + computerChoice;
-    console.log(str);
     if (
       str === "rockscissors" ||
       str === "scissorspaper" ||
       str === "paperrock"
     ) {
       setUserScore((prev) => prev + 1);
-      setResult("User +1 puan aldı");
+      setResult(`${user} +1 puan aldı`);
     } else if (
       str === "scissorsrock" ||
       str === "paperscissors" ||
@@ -48,18 +48,14 @@ function GameModOne() {
     if (userScore === 5 || computerScore === 5) {
       setGameOver(true);
       userScore === 5
-        ? setResult("Kazana USER !!!!!")
+        ? setResult(`Kazana ${user} !!!!!`)
         : setResult("Kazanan COMPUTER !!!!!!");
     }
   }, [userScore, computerScore]);
 
-  const handleClick = (e) => {
-    setUserChoice(e.target.value);
-  };
-
   const handlePlay = (e) => {
     if (!userChoice) {
-      alert("Önce user şeçimini yapmalıdır !!!");
+      alert(`Önce ${user} şeçimini yapmalıdır !!!`);
     } else {
       assignmentComputerChoice();
       setPlay(!play);
@@ -97,42 +93,10 @@ function GameModOne() {
           </div>
         </div>
         <div className="mt-5 mb-5">
-          <button
-            type="button"
-            className={
-              userChoice === "rock"
-                ? "btn btn-outline-info mx-2 active"
-                : "btn btn-outline-info mx-2"
-            }
-            value={"rock"}
-            onClick={handleClick}
-          >
-            Rock
-          </button>
-          <button
-            type="button"
-            className={
-              userChoice === "paper"
-                ? "btn btn-outline-info mx-2 active"
-                : "btn btn-outline-info mx-2"
-            }
-            value={"paper"}
-            onClick={handleClick}
-          >
-            Paper
-          </button>
-          <button
-            type="button"
-            className={
-              userChoice === "scissors"
-                ? "btn btn-outline-info active"
-                : "btn btn-outline-info"
-            }
-            value={"scissors"}
-            onClick={handleClick}
-          >
-            Scissors
-          </button>
+        <ChoiceButtonModeOne
+              userChoice={userChoice}
+              setUserChoice={setUserChoice}
+            />
         </div>
       </div>
 
@@ -154,16 +118,14 @@ function GameModOne() {
       </div>
 
       <div className="col-sm-12">
-        <p>
           {userScore === 5 || computerScore === 5 ? (
             <h2>{result}</h2>
           ) : (
             <strong>{result}</strong>
           )}
-        </p>
       </div>
 
-      <div className="col-sm-12 mt-2">
+      <div className="col-sm-12 mt-3">
         {!gameOver ? (
           <button
             type="button"

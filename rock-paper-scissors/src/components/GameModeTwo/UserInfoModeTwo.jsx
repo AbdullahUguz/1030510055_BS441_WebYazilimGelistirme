@@ -1,11 +1,11 @@
 import React from "react";
 
-function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setOk }) {
+function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setNamesOk }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user1 && user2) {
-      setOk(true);
+      setNamesOk(true);
     }
   };
 
@@ -19,24 +19,24 @@ function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setOk }) {
           <form>
             <div className="row">
               <div className="col-sm-6 mt-3 ">
-                <label htmlFor="user1Input" class="form-label">
+                <label htmlFor="user1Input" className="form-label">
                   Oyuncu 1 İsmi :
                 </label>
                 <input
                   type="text"
-                  class="form-control"
-                  value={user1}
+                  className="form-control"
+                  // value={user1}
                   onChange={(event) => setUser1(event.target.value)}
                 />
               </div>
               <div className="col-sm-6 mt-3">
-                <label htmlFor="user2Input" class="form-label">
+                <label htmlFor="user2Input" className="form-label">
                   Oyunucu 2 İsmi :
                 </label>
                 <input
                   type="text"
-                  class="form-control"
-                  value={user2}
+                  className="form-control"
+                  // value={user2}
                   onChange={(event) => setUser2(event.target.value)}
                 />
               </div>

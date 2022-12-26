@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
   const [buttonControl, setButtonControl] = useState(false);
@@ -8,7 +9,19 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
     setUserChoice(e.target.value);
   };
 
-  if (isChosen) {
+  // useEffect(()=>{
+  //   if(!userChoice){
+  //     setIsChosen(false);
+  //   }
+  // },[userChoice]);
+
+  // const handleChosen = ()=>{
+  //   setIsChosen(true);
+  // }
+
+  // if (isChosen) {
+
+  if (userChoice) {
     return (
       <>
         <button className="btn btn-primary">Seçim yapildi</button>
@@ -54,9 +67,11 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           Scissors
         </button>
         <div className="mt-2">
-          <button onClick={() => setIsChosen(true)} className="btn btn-outline-danger">
+          {/* {userChoice ? (<button onClick={handleChosen} className="btn btn-outline-danger">
             Seçimini kapat
-          </button>
+          </button>):(<><p className="mt-3">Şeçim yapmanız gerekiyor</p></>)} */}
+
+          {userChoice ?(<><p className="mt-3">Şeçim yapmanız gerekiyor</p></>) :(<></>)}
         </div>
       </>
     ) : (

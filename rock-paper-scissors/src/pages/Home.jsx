@@ -13,28 +13,38 @@ function Home() {
           </h5>
         </div>
       </div>
-      <hr/>
+      <hr />
       <div className="row mt-2">
-            <div className="col-sm-6">
-              <h4 className="mb-4">Oyun Mod 1</h4>
-              <p>
-                Bilgisyara karşı oynanyan bir oyun , oyuncu şeçimini yaptıktan
-                sonra oyna butonuna basarak bilgisayarın seçmesini
-                sağlayabilirsiniz ve oyunu başlatabilirsiniz. Skoru ilk 5 yapan oyunu kazanır.
-              </p>
-            </div>
+        <div className="col-sm-6">
+          <h4 className="mb-4">Oyun Mod 1</h4>
+          <p>
+            Bilgisayara karşı oynanyan bir oyun , oyuncu şeçimini yaptıktan
+            sonra oyna butonuna basarak bilgisayarın seçmesini sağlayabilirsiniz
+            ve oyunu başlatabilirsiniz. Skoru ilk 5 yapan oyunu kazanır.
+          </p>
+        </div>
 
-            <div className="col-sm-6">
-              <h4 className="mb-4">Oyun Mod 2</h4>
-              <p>
-                İki tane oyunucu aynı bilgisyarda oynanabilecek şekildedir.
-                Birinci oyuncu şeçimini yaptıktan sonra şecim yapttığı butonlar görünmez oluyor ve ikinci oyunucu da şeçimini yapınca
-                ekrana şeçimleri geliyor.
-                Ardından oyna butonuna basınca oyun başlıyor.
-                Oyun puanlandırma ile gerçekleşiyor. İlk 20 ve üstü bir puana ulaşan oyunu kazanıyor.
-
-              </p>
+        <div className="col-sm-6">
+          <h4 className="mb-4">Oyun Mod 2</h4>
+          <p>
+            İki tane oyunucu aynı bilgisyarda oynanabilecek şekildedir. Birinci
+            oyuncu şeçimini yaptıktan sonra şecim yapttığı butonlar görünmez
+            oluyor ve ikinci oyunucu da şeçimini yapınca şeçim yaptığı butonlar
+            görnmez oluyor. Her iki oyuncuda şeçim yaptıktan sonra şeçimleri
+            göster ile oyunu oynamış oluyorsunuz.Oyun puanlandırma ile
+            gerçekleşiyor.
+          </p>
+            <div className="mt-3 mb-3 text-start">
+              <ul>
+                <h6>Punaladırma Tablosu</h6>
+                <li>Taş Makası Yenerse +5 Puan</li>
+                <li>Makas Kağıdı Yenerse +3 Puan</li>
+                <li>Kağıt Taşı Yenerse +2 Puan</li>
+              </ul>
             </div>
+           <p>İlk 20 ve üstü bir puana ulaşan oyunu kazanıyor.</p> 
+          
+        </div>
       </div>
 
       <div className="row mt-3">
@@ -49,9 +59,7 @@ function Home() {
           </Link>
         </div>
       </div>
-     
     </div>
-   
   );
 }
 

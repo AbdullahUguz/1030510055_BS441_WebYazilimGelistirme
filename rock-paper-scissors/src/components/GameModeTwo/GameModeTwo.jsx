@@ -5,9 +5,7 @@ import UserInfoModeTwo from "./UserInfoModeTwo";
 function GameModTwo() {
   const [user1, setUser1] = useState(null);
   const [user2, setUser2] = useState(null);
-  const [ok, setOk] = useState(false);
-
-  // const choices = ["rock", "paper", "scissors"];
+  const [namesOk, setNamesOk] = useState(false);
 
   const [user1Choice, setUser1Choice] = useState();
   const [user2Choice, setUser2Choice] = useState();
@@ -17,72 +15,82 @@ function GameModTwo() {
   const [user2Score, setUser2Score] = useState(0);
   const [result, setResult] = useState("");
   const [gameOver, setGameOver] = useState(false);
-  const [play, setPlay] = useState(false);
-
-  // useEffect(() => {
-  //   const str = user1Choice + user2Choice;
-  //   console.log(str);
-  //   if (
-  //     str === "rockscissors" ||
-  //     str === "scissorspaper" ||
-  //     str === "paperrock"
-  //   ) {
-  //     setUser1Score((prev) => prev + 1);
-  //     setResult("User +1 puan aldı");
-  //   } else if (
-  //     str === "scissorsrock" ||
-  //     str === "paperscissors" ||
-  //     str === "rockpaper"
-  //   ) {
-  //     setUser2Score((prev) => prev + 1);
-  //     setResult("Computer +1 puan aldı");
-  //   } else if (
-  //     str === "rockrock" ||
-  //     str === "scissorsscissors" ||
-  //     str === "paperpaper"
-  //   ) {
-  //     setResult("Beraber");
-  //   }
-  // }, [play]);
 
   useEffect(() => {
+    if (user1Score >= 20) {
+      setResult(`KAZANAN ${user1} !!!`);
+      setGameOver(true);
+    }
+    if (user2Score >= 20) {
+      setResult(`KAZANAN ${user2} !!!`);
+      setGameOver(true);
+    }
+  }, [user1Score, user2Score]);
+
+  const handlePlay = () => {
     if (user1Choice && user2Choice) {
       setChosenAll(true);
+      play();
     }
-  }, [user1Choice, user2Choice]);
+  };
 
+  const play = () => {
+    const user1Str = user1Choice + user2Choice;
+    const user2Str = user2Choice + user1Choice;
+    
+    if (user1Str === "rockscissors") {
+      setUser1Score((prev) => prev + 5);
+      setResult(`${user1} +5 puan aldı`);
+    } else if (user2Str === "rockscissors") {
+      setUser2Score((prev) => prev + 5);
+      setResult(`${user2} +5 puan aldı`);
+    } else if (user1Str === "scissorspaper") {
+      setUser1Score((prev) => prev + 3);
+      setResult(`${user1} +3 puan aldı`);
+    } else if (user2Str === "scissorspaper") {
+      setUser2Score((prev) => prev + 3);
+      setResult(`${user2} +3 puan aldı`);
+    } else if (user1Str === "paperrock") {
+      setUser1Score((prev) => prev + 2);
+      setResult(`${user1} +2 puan aldı`);
+    } else if (user2Str === "paperrock") {
+      setUser2Score((prev) => prev + 2);
+      setResult(`${user2} +2 puan aldı`);
+    } else {
+      setResult(`Berabere !!!`);
+    }
+  };
 
-  // const handlePlay = (e) => {
-  //   if (!user1Choice) {
-  //     alert("Önce user şeçimini yapmalıdır !!!");
-  //   } else {
-  //     assignmentComputerChoice();
-  //     setPlay(!play);
-  //   }
-  // };
+  const handleNewGame = () => {
+    setUser1Choice();
+    setUser2Choice();
+    setChosenAll(false);
+  };
 
+  const reset = () => {
+    handleNewGame();
+    setUser1Score(0);
+    setUser2Score(0);
+    setGameOver(false);
+    setResult("");
+  };
 
-  // const reset = () => {
-  //   setUser1Score(0);
-  //   setUser2Score(0);
-  //   setGameOver(false);
-  //   setResult("");
-  // };
-
-  return !ok ? (
+  return !namesOk ? (
     <UserInfoModeTwo
       user1={user1}
       user2={user2}
       setUser1={setUser1}
       setUser2={setUser2}
-      setOk={setOk}
+      setNamesOk={setNamesOk}
     />
   ) : (
     <>
       <div className="row text-center">
         <div className="col-sm-6">
           <div>
-            <h3>{user1} Score = </h3>
+            <h3>
+              {user1} Score = {user1Score}
+            </h3>
             <div className="mt-5">
               {chosenAll ? (
                 <img
@@ -90,7 +98,7 @@ function GameModTwo() {
                   src={require(`../../../public/img/${user1Choice}.png`)}
                 />
               ) : (
-                <p>Her iki Oyunucuda Seçimini Yapnınca Gözükecek</p>
+                <p>Her iki Oyunucuda Seçimini Yapıp Şeçimleri Göster Butonuna Basılınca Gözükecek</p>
               )}
             </div>
           </div>
@@ -104,7 +112,9 @@ function GameModTwo() {
 
         <div className="col-sm-6">
           <div>
-            <h3>{user2} Score = </h3>
+            <h3>
+              {user2} Score = {user2Score}
+            </h3>
             <div className="mt-5">
               {chosenAll ? (
                 <img
@@ -112,7 +122,7 @@ function GameModTwo() {
                   src={require(`../../../public/img/${user2Choice}.png`)}
                 />
               ) : (
-                <p>Her iki Oyunucuda Seçimini Yapnınca Gözükecek</p>
+                <p>Her iki Oyunucuda Seçimini Yapıp Şeçimleri Göster Butonuna Basılınca Gözükecek</p>
               )}
             </div>
           </div>
@@ -124,11 +134,41 @@ function GameModTwo() {
           </div>
         </div>
 
-        <div className="col-sm-12">
-          <p>result</p>
-        </div>
+        {chosenAll ? (
+          <div className="col-sm-12 mt-2">
+            <h5>{result}</h5>
+          </div>
+        ) : (
+          <></>
+        )}
 
-        <div className="col-sm-12 mt-2">game over</div>
+        <div className="col-sm-12 mt-4">
+          {!chosenAll ? (
+            <button
+              type="button"
+              className="btn btn-success px-5"
+              onClick={handlePlay}
+            >
+              Seçimleri Göster
+            </button>
+          ) : gameOver ? (
+            <button
+              type="button"
+              className="btn btn-warning px-5"
+              onClick={() => reset()}
+            >
+              Reset
+            </button>
+          ):(
+            <button
+              type="button"
+              className="btn btn-info px-5"
+              onClick={handleNewGame}
+            >
+              Yeni Oyun
+            </button>
+          )}
+        </div>
       </div>
     </>
   );
