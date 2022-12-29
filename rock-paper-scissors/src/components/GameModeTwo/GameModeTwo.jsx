@@ -17,11 +17,11 @@ function GameModTwo() {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
-    if (user1Score >= 20) {
+    if (user1Score >= 10) {
       setResult(`KAZANAN ${user1} !!!`);
       setGameOver(true);
     }
-    if (user2Score >= 20) {
+    if (user2Score >= 10) {
       setResult(`KAZANAN ${user2} !!!`);
       setGameOver(true);
     }

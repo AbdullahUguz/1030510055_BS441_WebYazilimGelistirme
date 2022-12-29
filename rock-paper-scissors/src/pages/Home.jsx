@@ -27,22 +27,22 @@ function Home() {
         <div className="col-sm-6">
           <h4 className="mb-4">Oyun Mod 2</h4>
           <p>
-            İki tane oyunucu aynı bilgisyarda oynanabilecek şekildedir. Birinci
-            oyuncu şeçimini yaptıktan sonra şecim yapttığı butonlar görünmez
+            İki tane oyunucu aynı bilgisayarda oynanabilecek şekildedir. Birinci
+            oyuncu şeçimini yaptıktan sonra şeçim yapttığı butonlar görünmez
             oluyor ve ikinci oyunucu da şeçimini yapınca şeçim yaptığı butonlar
-            görnmez oluyor. Her iki oyuncuda şeçim yaptıktan sonra şeçimleri
+            görünmez oluyor. Her iki oyuncuda şeçim yaptıktan sonra şeçimleri
             göster ile oyunu oynamış oluyorsunuz.Oyun puanlandırma ile
             gerçekleşiyor.
           </p>
             <div className="mt-3 mb-3 text-start">
               <ul>
-                <h6>Punaladırma Tablosu</h6>
+                <h6>Puanlandırma Tablosu</h6>
                 <li>Taş Makası Yenerse +5 Puan</li>
                 <li>Makas Kağıdı Yenerse +3 Puan</li>
                 <li>Kağıt Taşı Yenerse +2 Puan</li>
               </ul>
             </div>
-           <p>İlk 20 ve üstü bir puana ulaşan oyunu kazanıyor.</p> 
+           <p>İlk 10 ve üstü bir puana ulaşan oyunu kazanıyor.</p> 
           
         </div>
       </div>

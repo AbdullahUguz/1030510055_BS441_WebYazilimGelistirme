@@ -17,7 +17,7 @@ function ChoiceButtonModeOne({ userChoice, setUserChoice }) {
         value={"rock"}
         onClick={handleClick}
       >
-        Rock
+        Taş
       </button>
       <button
         type="button"
@@ -29,7 +29,7 @@ function ChoiceButtonModeOne({ userChoice, setUserChoice }) {
         value={"paper"}
         onClick={handleClick}
       >
-        Paper
+        Kağıt
       </button>
       <button
         type="button"
@@ -41,7 +41,7 @@ function ChoiceButtonModeOne({ userChoice, setUserChoice }) {
         value={"scissors"}
         onClick={handleClick}
       >
-        Scissors
+        Makas
       </button>
     </div>
   );

@@ -17,7 +17,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/modeOne" element={<GameModeOne />} />
           <Route path="/modeTwo" element={<GameModeTwo />} />
-          {/* <Route path="*" element={<notFound />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

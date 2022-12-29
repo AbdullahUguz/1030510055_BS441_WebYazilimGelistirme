@@ -34,7 +34,7 @@ function GameModOne() {
       str === "rockpaper"
     ) {
       setComputerScore((prev) => prev + 1);
-      setResult("Computer +1 puan aldı");
+      setResult("Bilgisayar +1 puan aldı");
     } else if (
       str === "rockrock" ||
       str === "scissorsscissors" ||
@@ -48,8 +48,8 @@ function GameModOne() {
     if (userScore === 5 || computerScore === 5) {
       setGameOver(true);
       userScore === 5
-        ? setResult(`Kazana ${user} !!!!!`)
-        : setResult("Kazanan COMPUTER !!!!!!");
+        ? setResult(`Kazanan ${user} !!!!!`)
+        : setResult("Kazanan BİLGİSAYAR !!!!!!");
     }
   }, [userScore, computerScore]);
 
@@ -101,7 +101,7 @@ function GameModOne() {
       </div>
 
       <div className="col-sm-6">
-        <h3>Computer Score = {computerScore}</h3>
+        <h3>Bilgisayar Score = {computerScore}</h3>
         <div className="mt-5">
           {computerChoice ? (
             <img

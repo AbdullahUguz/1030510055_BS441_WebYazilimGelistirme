@@ -40,7 +40,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"rock"}
           onClick={handleClick}
         >
-          Rock
+          Taş
         </button>
         <button
           type="button"
@@ -52,7 +52,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"paper"}
           onClick={handleClick}
         >
-          Paper
+          Kağıt
         </button>
         <button
           type="button"
@@ -64,7 +64,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"scissors"}
           onClick={handleClick}
         >
-          Scissors
+          Makas
         </button>
         <div className="mt-2">
           {/* {userChoice ? (<button onClick={handleChosen} className="btn btn-outline-danger">
