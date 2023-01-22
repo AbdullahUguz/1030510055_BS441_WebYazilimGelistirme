@@ -14,13 +14,13 @@ function UserInfoModeOne({ user, setUser, setOk }) {
       <div>
         <div className="row text-center">
           <div>
-            <h4>Oyuncu isimini giriniz !!!</h4>
+            <h4>Enter the name of the player !!!</h4>
           </div>
           <form>
             <div className="row">
               <div className="col-sm-12 mt-3 ">
                 <label htmlFor="user1Input" className="form-label">
-                  Oyuncu  İsmi :
+                  Player  Name :
                 </label>
                 <input
                   type="text"
@@ -34,7 +34,7 @@ function UserInfoModeOne({ user, setUser, setOk }) {
                   onClick={handleSubmit}
                   className="btn btn-outline-success"
                 >
-                  Kaydet
+                  Save
                 </button>
               </div>
             </div>

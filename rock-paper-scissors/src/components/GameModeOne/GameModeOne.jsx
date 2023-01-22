@@ -3,11 +3,9 @@ import "../../App.css";
 import UserInfoModeOne from "../GameModeOne/UserInfoModeOne";
 import ChoiceButtonModeOne from "./ChoiceButtonModeOne";
 
-
 function GameModOne() {
-
   const [user, setUser] = useState(null);
-  const [ok,setOk]=useState(false);
+  const [ok, setOk] = useState(false);
 
   const choices = ["rock", "paper", "scissors"];
 
@@ -27,35 +25,35 @@ function GameModOne() {
       str === "paperrock"
     ) {
       setUserScore((prev) => prev + 1);
-      setResult(`${user} +1 puan aldı`);
+      setResult(`${user} +1 points`);
     } else if (
       str === "scissorsrock" ||
       str === "paperscissors" ||
       str === "rockpaper"
     ) {
       setComputerScore((prev) => prev + 1);
-      setResult("Bilgisayar +1 puan aldı");
+      setResult("Computer +1 points");
     } else if (
       str === "rockrock" ||
       str === "scissorsscissors" ||
       str === "paperpaper"
     ) {
-      setResult("Beraber");
+      setResult("Game Draw");
     }
-  },[play]);
+  }, [play]);
 
   useEffect(() => {
     if (userScore === 5 || computerScore === 5) {
       setGameOver(true);
       userScore === 5
-        ? setResult(`Kazanan ${user} !!!!!`)
-        : setResult("Kazanan BİLGİSAYAR !!!!!!");
+        ? setResult(`WINNER ${user} !!!!!`)
+        : setResult("WINNER COMPUTER !!!!!!");
     }
   }, [userScore, computerScore]);
 
   const handlePlay = (e) => {
     if (!userChoice) {
-      alert(`Önce ${user} şeçimini yapmalıdır !!!`);
+      alert(`${user} must make the choice first !!!`);
     } else {
       assignmentComputerChoice();
       setPlay(!play);
@@ -75,12 +73,14 @@ function GameModOne() {
   };
 
   return !ok ? (
-    <UserInfoModeOne  user={user} setUser={setUser} setOk={setOk}/>
+    <UserInfoModeOne user={user} setUser={setUser} setOk={setOk} />
   ) : (
     <div className="row text-center">
       <div className="col-sm-6">
         <div>
-          <h3>{user} Score = {userScore}</h3>
+          <h3>
+            {user} Score = {userScore}
+          </h3>
           <div className="mt-5">
             {userChoice ? (
               <img
@@ -93,10 +93,10 @@ function GameModOne() {
           </div>
         </div>
         <div className="mt-5 mb-5">
-        <ChoiceButtonModeOne
-              userChoice={userChoice}
-              setUserChoice={setUserChoice}
-            />
+          <ChoiceButtonModeOne
+            userChoice={userChoice}
+            setUserChoice={setUserChoice}
+          />
         </div>
       </div>
 
@@ -110,19 +110,19 @@ function GameModOne() {
             />
           ) : (
             <p>
-              Oyna butonuna bastıktan sonra bilgisayar şeçimini
-              gerçekleştirecektir
+              After pressing the play button the computer will perform the
+              selection
             </p>
           )}
         </div>
       </div>
 
       <div className="col-sm-12">
-          {userScore === 5 || computerScore === 5 ? (
-            <h2>{result}</h2>
-          ) : (
-            <strong>{result}</strong>
-          )}
+        {userScore === 5 || computerScore === 5 ? (
+          <h2>{result}</h2>
+        ) : (
+          <strong>{result}</strong>
+        )}
       </div>
 
       <div className="col-sm-12 mt-3">
@@ -132,7 +132,7 @@ function GameModOne() {
             className="btn btn-success px-5"
             onClick={handlePlay}
           >
-            Oyna
+            Play
           </button>
         ) : (
           <button

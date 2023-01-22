@@ -18,11 +18,11 @@ function GameModTwo() {
 
   useEffect(() => {
     if (user1Score >= 10) {
-      setResult(`KAZANAN ${user1} !!!`);
+      setResult(`WINNER ${user1} !!!`);
       setGameOver(true);
     }
     if (user2Score >= 10) {
-      setResult(`KAZANAN ${user2} !!!`);
+      setResult(`WINNER ${user2} !!!`);
       setGameOver(true);
     }
   }, [user1Score, user2Score]);
@@ -37,27 +37,27 @@ function GameModTwo() {
   const play = () => {
     const user1Str = user1Choice + user2Choice;
     const user2Str = user2Choice + user1Choice;
-    
+
     if (user1Str === "rockscissors") {
       setUser1Score((prev) => prev + 5);
-      setResult(`${user1} +5 puan aldı`);
+      setResult(`${user1} +5 points`);
     } else if (user2Str === "rockscissors") {
       setUser2Score((prev) => prev + 5);
-      setResult(`${user2} +5 puan aldı`);
+      setResult(`${user2} +5 points`);
     } else if (user1Str === "scissorspaper") {
       setUser1Score((prev) => prev + 3);
-      setResult(`${user1} +3 puan aldı`);
+      setResult(`${user1} +3 points`);
     } else if (user2Str === "scissorspaper") {
       setUser2Score((prev) => prev + 3);
-      setResult(`${user2} +3 puan aldı`);
+      setResult(`${user2} +3 points`);
     } else if (user1Str === "paperrock") {
       setUser1Score((prev) => prev + 2);
-      setResult(`${user1} +2 puan aldı`);
+      setResult(`${user1} +2 points`);
     } else if (user2Str === "paperrock") {
       setUser2Score((prev) => prev + 2);
-      setResult(`${user2} +2 puan aldı`);
+      setResult(`${user2} +2 points`);
     } else {
-      setResult(`Berabere !!!`);
+      setResult(`Game Draw !!!`);
     }
   };
 
@@ -98,7 +98,10 @@ function GameModTwo() {
                   src={require(`../../../public/img/${user1Choice}.png`)}
                 />
               ) : (
-                <p>Her iki Oyunucuda Seçimini Yapıp Şeçimleri Göster Butonuna Basılınca Gözükecek</p>
+                <p>
+                  It will appear when both players make their selection and
+                  click the show selections button.
+                </p>
               )}
             </div>
           </div>
@@ -122,7 +125,10 @@ function GameModTwo() {
                   src={require(`../../../public/img/${user2Choice}.png`)}
                 />
               ) : (
-                <p>Her iki Oyunucuda Seçimini Yapıp Şeçimleri Göster Butonuna Basılınca Gözükecek</p>
+                <p>
+                  It will appear when both players make their selection and
+                  click the show selections button.
+                </p>
               )}
             </div>
           </div>
@@ -149,7 +155,7 @@ function GameModTwo() {
               className="btn btn-success px-5"
               onClick={handlePlay}
             >
-              Seçimleri Göster
+              Show Selections
             </button>
           ) : gameOver ? (
             <button
@@ -159,13 +165,13 @@ function GameModTwo() {
             >
               Reset
             </button>
-          ):(
+          ) : (
             <button
               type="button"
               className="btn btn-info px-5"
               onClick={handleNewGame}
             >
-              Yeni Oyun
+              New Game
             </button>
           )}
         </div>

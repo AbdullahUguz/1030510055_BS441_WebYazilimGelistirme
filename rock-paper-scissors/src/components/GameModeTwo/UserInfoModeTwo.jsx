@@ -14,13 +14,13 @@ function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setNamesOk }) {
       <div>
         <div className="row text-center">
           <div>
-            <h4>Oyuncuların isimlerini giriniz !!!</h4>
+            <h4>Enter the names of the players !!!</h4>
           </div>
           <form>
             <div className="row">
               <div className="col-sm-6 mt-3 ">
                 <label htmlFor="user1Input" className="form-label">
-                  Oyuncu 1 İsmi :
+                  Player 1 Name :
                 </label>
                 <input
                   type="text"
@@ -31,7 +31,7 @@ function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setNamesOk }) {
               </div>
               <div className="col-sm-6 mt-3">
                 <label htmlFor="user2Input" className="form-label">
-                  Oyunucu 2 İsmi :
+                  Player 2 Name :
                 </label>
                 <input
                   type="text"
@@ -45,7 +45,7 @@ function UserInfoModeTwo({ user1, user2, setUser1, setUser2, setNamesOk }) {
                   onClick={handleSubmit}
                   className="btn btn-outline-success"
                 >
-                  Kaydet
+                  Save
                 </button>
               </div>
             </div>

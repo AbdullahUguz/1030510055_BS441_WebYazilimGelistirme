@@ -8,8 +8,8 @@ function Home() {
       <div className="row">
         <div className="col-sm-12 ">
           <h5>
-            Taş kağıt makas oyununa hoş geldiniz. Bu oyunda, iki tane oyun modu
-            bulunmaktadır.
+            Welcome to the rock paper scissors game. This game has two game
+            modes.
           </h5>
         </div>
       </div>
@@ -18,44 +18,43 @@ function Home() {
         <div className="col-sm-6">
           <h4 className="mb-4">Oyun Mod 1</h4>
           <p>
-            Bilgisayara karşı oynanyan bir oyun , oyuncu şeçimini yaptıktan
-            sonra oyna butonuna basarak bilgisayarın seçmesini sağlayabilirsiniz
-            ve oyunu başlatabilirsiniz. Skoru ilk 5 yapan oyunu kazanır.
+            A game played against the computer. In the game, after choosing the
+            player, you can press the play button to let the computer choose and
+            start the game. The first to score 5 score wins the game.
           </p>
         </div>
 
         <div className="col-sm-6">
           <h4 className="mb-4">Oyun Mod 2</h4>
           <p>
-            İki tane oyunucu aynı bilgisayarda oynanabilecek şekildedir. Birinci
-            oyuncu şeçimini yaptıktan sonra şeçim yapttığı butonlar görünmez
-            oluyor ve ikinci oyunucu da şeçimini yapınca şeçim yaptığı butonlar
-            görünmez oluyor. Her iki oyuncuda şeçim yaptıktan sonra şeçimleri
-            göster ile oyunu oynamış oluyorsunuz.Oyun puanlandırma ile
-            gerçekleşiyor.
+            Two players can be played on the same computer. After the first
+            player makes his choice, the buttons he has chosen become invisible,
+            and when the second player makes his choice, the buttons he has
+            chosen become invisible. After both players have made a choice, you
+            are playing the game by showing the choices. The game takes place by
+            scoring.
           </p>
-            <div className="mt-3 mb-3 text-start">
-              <ul>
-                <h6>Puanlandırma Tablosu</h6>
-                <li>Taş Makası Yenerse +5 Puan</li>
-                <li>Makas Kağıdı Yenerse +3 Puan</li>
-                <li>Kağıt Taşı Yenerse +2 Puan</li>
-              </ul>
-            </div>
-           <p>İlk 10 ve üstü bir puana ulaşan oyunu kazanıyor.</p> 
-          
+          <div className="mt-3 mb-3 text-start">
+            <ul>
+              <h6>Scoring Chart</h6>
+              <li>+5 Points if Stone Beats Scissors</li>
+              <li>+3 Points if Scissors Beats Paper</li>
+              <li>+2 Points if Paper Beats Stone</li>
+            </ul>
+          </div>
+          <p>The first to reach 10 points or more wins the game.</p>
         </div>
       </div>
 
       <div className="row mt-3">
         <div className="col-sm-6">
           <Link to={"/modeOne"}>
-            <button className="btn btn-outline-success">Oyun Modu 1</button>
+            <button className="btn btn-outline-success">Game Mode 1</button>
           </Link>
         </div>
         <div className="col-sm-6">
           <Link to={"/modeTwo"}>
-            <button className="btn btn-outline-success">Oyun Modu 2</button>
+            <button className="btn btn-outline-success">Game Mode 2</button>
           </Link>
         </div>
       </div>

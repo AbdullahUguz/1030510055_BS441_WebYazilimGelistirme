@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
   const [buttonControl, setButtonControl] = useState(false);
-  const [isChosen, setIsChosen] = useState(false);
+  // const [isChosen, setIsChosen] = useState(false);
 
   const handleClick = (e) => {
     setUserChoice(e.target.value);
@@ -40,7 +40,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"rock"}
           onClick={handleClick}
         >
-          Taş
+          Rock
         </button>
         <button
           type="button"
@@ -52,7 +52,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"paper"}
           onClick={handleClick}
         >
-          Kağıt
+          Paper
         </button>
         <button
           type="button"
@@ -64,14 +64,14 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           value={"scissors"}
           onClick={handleClick}
         >
-          Makas
+          Scissors
         </button>
         <div className="mt-2">
           {/* {userChoice ? (<button onClick={handleChosen} className="btn btn-outline-danger">
             Seçimini kapat
           </button>):(<><p className="mt-3">Şeçim yapmanız gerekiyor</p></>)} */}
 
-          {userChoice ?(<><p className="mt-3">Şeçim yapmanız gerekiyor</p></>) :(<></>)}
+          {userChoice ?(<><p className="mt-3">You have to choose</p></>) :(<></>)}
         </div>
       </>
     ) : (
@@ -80,7 +80,7 @@ function ChoiceButtonModeTwo({ userChoice, setUserChoice}) {
           onClick={() => setButtonControl(true)}
           className="btn btn-outline-primary"
         >
-          Seçim yap
+          Choose
         </button>
       </>
     );
